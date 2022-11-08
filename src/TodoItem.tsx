@@ -1,9 +1,10 @@
-import react, { ReactNode } from "react";
+import react, { MouseEventHandler, ReactNode } from "react";
 import './styles/TodoItem.css';
 
-function TodoItem(props: {    
-    text: ReactNode;
-    completed:boolean
+function TodoItem(props: {
+    onDelete: MouseEventHandler<HTMLSpanElement> | undefined;
+    onComplete: MouseEventHandler<HTMLSpanElement> | undefined;
+    completed: boolean; text: ReactNode
 }) {
     const onComplete = () => {
         alert('Ya completaste el todo ' + props.text);
@@ -15,7 +16,7 @@ function TodoItem(props: {
         <li className="TodoItem">
             <span
                 className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
-                onClick={onComplete}
+                onClick={props.onComplete}
             >
                 √
             </span>
@@ -24,12 +25,14 @@ function TodoItem(props: {
             </p>
             <span
                 className="Icon Icon-delete"
-                onClick={onDelete}
+                onClick={props.onDelete}
             >
                 X
             </span>
         </li>
     );
 }
+
+//{ text: ReactNode; completed:boolean}
 
 export { TodoItem };

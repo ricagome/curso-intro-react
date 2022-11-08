@@ -1,10 +1,9 @@
 import { useState }  from 'react';
 import './styles/TodoCounter.css';
 
-function TodoCounter() {
-  const [total, completed] = useState(0);
+function TodoCounter(props:{total: number, completed: number}) {
   return (
-    <h1 className="TodoCounter">Has completado 1 de 4 TODOs</h1>
+    <h1 className="TodoCounter">Has completado {props.completed} de {props.total} TODOs</h1>
   );
 }
 

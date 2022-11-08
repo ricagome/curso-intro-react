@@ -11,7 +11,7 @@ import './App.css';
 const defaultTodos = [
   { text: 'Instalar', completed: true },
   { text: 'Tomar el cursso de intro a React', completed: false },
-  { text: 'Maquetear', completed: false },
+  { text: 'Maquetear', completed: true },
   { text: 'Routing', completed: false },
 ];
 
@@ -26,25 +26,50 @@ function App() {
   let searchedTodos = [];
 
   // Lógica para filtrar
+  //if (!searchValue.length >= 1) {
+  //  searchedTodos = todos;
+  //} else {
+  //  searchedTodos = todos.filter(todo => {
+  //    const todoText = todo.text.toLowerCase();
+  //    const searchText = searchValue.toLowerCase();
+  //    return todoText.includes(searchText);
+  //  });
+
   if (searchValue.length >= 1) {
-    searchedTodos = todos;
-  } else {
-    searchedTodos = todos.filter(todo => {
+    searchedTodos = todos.filter((todo) => {
       const todoText = todo.text.toLowerCase();
       const searchText = searchValue.toLowerCase();
       return todoText.includes(searchText);
     });
+  } else {
+    searchedTodos = todos;
   }
+  // Completar
+  const completeTodo = (text: string) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
+  const deleteTodo = (text: string) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  };
+
 
   return (
     <React.Fragment>
       <div className="container">
 
-        <TodoCounter />
-        <TodoSearch />
+        <TodoCounter total={totalTodos} completed={completedTodos} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
         <TodoList>
           {searchedTodos.map((value, key) => (
-            <TodoItem key={key} text={value.text} completed={value.completed} />
+            <TodoItem key={key} text={value.text} completed={value.completed} onComplete={() => completeTodo(value.text)}
+              onDelete={() => deleteTodo(value.text)} />
           ))
           }
         </TodoList>
