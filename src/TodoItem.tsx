@@ -1,11 +1,33 @@
-import react from "react";
+import react, { ReactNode } from "react";
+import './styles/TodoItem.css';
 
-function TodoItem(props: { text: string | number | boolean | react.ReactFragment | react.ReactPortal | react.ReactElement<any, string | react.JSXElementConstructor<any>> | null | undefined; }) {
+function TodoItem(props: {    
+    text: ReactNode;
+    completed:boolean
+}) {
+    const onComplete = () => {
+        alert('Ya completaste el todo ' + props.text);
+      };
+      const onDelete = () => {
+        alert('Borraste el todo ' + props.text);
+      };
     return (
-        <li>
-            <span>C</span>
-                <p>{props.text}</p>
-            <span>X</span>
+        <li className="TodoItem">
+            <span
+                className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
+                onClick={onComplete}
+            >
+                √
+            </span>
+            <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
+                {props.text}
+            </p>
+            <span
+                className="Icon Icon-delete"
+                onClick={onDelete}
+            >
+                X
+            </span>
         </li>
     );
 }
