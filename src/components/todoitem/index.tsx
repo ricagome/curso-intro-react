@@ -1,5 +1,5 @@
 import react, { MouseEventHandler, ReactNode } from "react";
-import './styles/TodoItem.css';
+import './TodoItem.css';
 
 function TodoItem(props: {
     onDelete: MouseEventHandler<HTMLSpanElement> | undefined;

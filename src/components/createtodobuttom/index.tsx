@@ -2,7 +2,7 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
-import './styles/CreateTodoButtom.css';
+import './CreateTodoButtom.css';
 
 function CreateTodoButtom(props: any) {
   const onClickButton = (msg: string) => {

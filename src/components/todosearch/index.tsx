@@ -1,5 +1,5 @@
 import {JSXElementConstructor, ReactElement, ReactNode} from 'react';
-import './styles/TodoSearch.css';
+import './TodoSearch.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 function TodoSearch(props:{searchValue: string, setSearchValue: any}) {
