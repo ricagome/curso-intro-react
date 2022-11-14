@@ -1,10 +1,10 @@
 import React from 'react';
-import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
-import Badge from 'react-bootstrap/Badge';
-import './CreateTodoButtom.css';
+//import Table from 'react-bootstrap/Table';
+//import Button from 'react-bootstrap/Button';
+//import Badge from 'react-bootstrap/Badge';
+import './CreateTodoButton.css';
 
-function CreateTodoButtom(props: any) {
+function CreateTodoButton(props: any) {
   const onClickButton = (msg: string) => {
     alert(msg);
   };
@@ -29,4 +29,4 @@ function CreateTodoButtom(props: any) {
   );
 }
 
-export { CreateTodoButtom };
+export { CreateTodoButton };

@@ -1,4 +1,4 @@
-import { useState }  from 'react';
+import React from 'react';
 import './TodoCounter.css';
 
 function TodoCounter(props:{total: number, completed: number}) {

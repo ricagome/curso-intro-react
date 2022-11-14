@@ -1,4 +1,4 @@
-import {JSXElementConstructor, ReactElement, ReactNode} from 'react';
+import React from 'react';
 import './TodoSearch.css';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 

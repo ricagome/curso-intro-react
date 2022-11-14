@@ -1,4 +1,4 @@
-import react, { MouseEventHandler, ReactNode } from "react";
+import React, { MouseEventHandler, ReactNode } from "react";
 import './TodoItem.css';
 
 function TodoItem(props: {
@@ -6,12 +6,6 @@ function TodoItem(props: {
     onComplete: MouseEventHandler<HTMLSpanElement> | undefined;
     completed: boolean; text: ReactNode
 }) {
-    const onComplete = () => {
-        alert('Ya completaste el todo ' + props.text);
-      };
-      const onDelete = () => {
-        alert('Borraste el todo ' + props.text);
-      };
     return (
         <li className="TodoItem">
             <span
@@ -32,7 +26,5 @@ function TodoItem(props: {
         </li>
     );
 }
-
-//{ text: ReactNode; completed:boolean}
 
 export { TodoItem };
