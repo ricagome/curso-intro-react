@@ -1,7 +1,7 @@
 import react from "react";
 import Table from "react-bootstrap/Table";
 
-function TodoList(props: { children: string | number | boolean | react.ReactElement<any, string | react.JSXElementConstructor<any>> | react.ReactFragment | react.ReactPortal | null | undefined; }){
+function TodoList(props: { children: string | boolean | react.ReactFragment ; }){
     return(
         <section>
             <Table striped>

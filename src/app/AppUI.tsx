@@ -6,6 +6,8 @@ import { TodoItem } from "../components/todoitem";
 import { CreateTodoButton } from "../components/createtodobutton";
 
 function AppUI({
+    loading,
+    error,
     totalTodos,
     completedTodos,
     searchValue,
@@ -20,12 +22,18 @@ function AppUI({
                 <TodoCounter total={totalTodos} completed={completedTodos} />
                 <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
                 <TodoList>
-                    {searchedTodos.map((value: { text: string; completed: boolean; }, key: React.Key | null | undefined) => (
-                        <TodoItem key={key} text={value.text} completed={value.completed}
-                            onComplete={() => completeTodo(value.text)}
-                            onDelete={() => deleteTodo(value.text)} />
-                    ))
-                    }
+                    {error && <p>Error en la carga, error de servidor!!!</p>}
+                    {loading && <p>Estamos cargando los datos, espera!!!</p>}
+                    {(!loading && !searchedTodos.length) && <p>Crea tu primer TODO!!!</p>}
+                    {searchedTodos.map((todo: { text: string ; completed: boolean; }) => (
+                        <TodoItem
+                            key={todo.text}
+                            text={todo.text}
+                            completed={todo.completed}
+                            onComplete={() => completeTodo(todo.text)}
+                            onDelete={() => deleteTodo(todo.text)}
+                        />
+                    ))}
                 </TodoList>
                 <CreateTodoButton />
             </div>
