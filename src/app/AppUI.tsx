@@ -25,7 +25,7 @@ function AppUI({
                     {error && <p>Error en la carga, error de servidor!!!</p>}
                     {loading && <p>Estamos cargando los datos, espera!!!</p>}
                     {(!loading && !searchedTodos.length) && <p>Crea tu primer TODO!!!</p>}
-                    {searchedTodos.map((todo: { text: string ; completed: boolean; }) => (
+                    {searchedTodos.map((todo: { text: any; completed: boolean; }) => (
                         <TodoItem
                             key={todo.text}
                             text={todo.text}

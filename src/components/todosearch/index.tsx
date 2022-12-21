@@ -5,7 +5,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 function TodoSearch(props:{searchValue: string, setSearchValue: any}) {
     //const [searchValue, setSearchValue] = useState('');
     const now = 25; 
-    const onSearchValueChange = (event: { target: { value: any; }; }) => {
+    const onSearchValueChange = (event: { target: { value: string; }; }) => {
         console.log(event.target.value);
         props.setSearchValue(event.target.value);
       };
